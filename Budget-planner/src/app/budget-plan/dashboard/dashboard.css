@@ -1,0 +1,100 @@
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width:calc(100% - 40px);
+    max-width: 1200px;
+}
+
+.card{
+    position: relative;
+    background-color: #f7f0f0;
+    border-radius: 8px;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(50% - 40px);
+    max-width: 400px;
+    transition: transform 0.3s ease;
+    
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-header{
+    display: flex;
+    align-items: center;
+}
+
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.add-income-btn{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #008080;
+    color: white;
+    border: none;
+    border-radius: 10%;
+    width: 70px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.add-income-btn:hover {
+    background-color: #006666;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.total-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.total-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+
+.icon.income-icon {
+    background-color: rgb(235, 235, 162); /* Green for income */
+}
+
+.icon.expense-icon {
+    background-color: rgb(247, 211, 217); /* Red for expenses */
+}
+
+.icon.trans-icon {
+    background-color: #9fcdf3; /* Blue for savings */
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 20px 0;
+}
