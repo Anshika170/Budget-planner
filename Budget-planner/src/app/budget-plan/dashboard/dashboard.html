@@ -1,4 +1,3 @@
-
 <app-side-nav></app-side-nav>
 
 <div class="container">
@@ -6,7 +5,11 @@
         <!-- Income -->
         <div class="card">
             <div class="card-header">
-                <span class="icon income-icon"><mat-icon>Attach_Money</mat-icon></span>
+                <span class="icon income-icon">
+                    <svg class="slds-icon slds-icon-text-default slds-icon_small">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#money"></use>
+                    </svg>
+                </span>
                 <h2>Income</h2>
             </div>
             <hr>
@@ -22,13 +25,17 @@
                     <p>{{ currentmonthincome }}</p>
                 </div>
             </div>
-            <button class="add-income-btn" (click)="OnIncome()">View</button>
+            <button class="button" (click)="OnIncome()">View</button>
         </div>
 
         <!-- Expenses -->
         <div class="card">
             <div class="card-header">
-                <span class="icon expense-icon"><mat-icon>Money_off</mat-icon></span>
+                <span class="icon expense-icon">
+                    <svg class="slds-icon slds-icon-text-default slds-icon_small">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#credit_card"></use>
+                    </svg>
+                </span>
                 <h2>Expenses</h2>
             </div>
             <hr>
@@ -44,56 +51,71 @@
                     <p>{{ currentmonthexpense }}</p>
                 </div>
             </div>
-            <button class="add-income-btn" (click)="OnExpense()">View</button>
+            <button class="button" (click)="OnExpense()">View</button>
         </div>
 
         <!-- To Do Transaction -->
         <div class="card">
             <div class="card-header">
-                <span class="icon todo-icon"><mat-icon>assignment</mat-icon></span>
+                <span class="icon todo-icon">
+                    <svg class="slds-icon slds-icon-text-default slds-icon_small">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#tasks"></use>
+                    </svg>
+                </span>
                 <h2>To-Do Transactions</h2>
             </div>
             <hr>
-            <ul>
+            <ol type="1">
                 <li *ngFor="let todo of todos">
-                    <span class="transaction-status">
-                        <mat-icon>hourglass_empty</mat-icon>
-                    </span>
                     <span class="transaction-details">{{ todo.description }}</span>
                 </li>
-            </ul>
-            
-            <button class="add-income-btn" (click)="OnTodo()">View</button>
+            </ol>
+            <br>
+            <br>
+            <button class="button" (click)="OnTodo()">View</button>
         </div>
 
         <!-- Total Transaction -->
-
         <div class="card">
             <div class="card-header">
-                <span class="icon total-icon"><mat-icon>timeline</mat-icon></span>
+                <span class="icon total-icon">
+                    <svg class="slds-icon slds-icon-text-default slds-icon_small">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chart"></use>
+                    </svg>
+                </span>
                 <h2>Total Income</h2>
             </div>
             <hr>
             <div class="total-details">
                 <div class="total-item">
-                    <span icon income-icon><mat-icon>Attach_Money</mat-icon></span>
+                    <span class="icon income-icon">
+                        <svg class="slds-icon slds-icon-text-default slds-icon_small">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#money"></use>
+                        </svg>
+                    </span>
                     <h3>Current Month Income</h3>
                     <p>{{ totalcurrentmonthincome | currency }}</p>
+                </div>
+                <div class="total-item">
+                    <span class="icon expense-icon">
+                        <svg class="slds-icon slds-icon-text-default slds-icon_small">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#credit_card"></use>
+                        </svg>
+                    </span>
+                    <h3>Current Month Expense</h3>
+                    <p>{{ totalcurrentmonthexpense | currency }}</p>
+                </div>
+                <hr>
+                <div class="total-item">
+                    <span class="icon trans-icon">
+                        <svg class="slds-icon slds-icon-text-default slds-icon_small">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#savings"></use>
+                        </svg>
+                    </span>
+                    <h3>Current Month Savings</h3>
+                    <p>{{ totalcurrentmonthsaving | currency }}</p>
+                </div>
             </div>
-            <div class="total-item">
-                <span icon expense-icon><mat-icon>Money_off</mat-icon></span>
-                <h3>Current Month Expense</h3>
-                <p>{{ totalcurrentmonthexpense | currency }}</p>
-            </div>
-            <hr>
-            <div class="total-item">
-                <span icon trans-icon><mat-icon>account-balance-wallet</mat-icon></span>
-                <h3>Current Month Savings</h3>
-                <p>{{ totalcurrentmonthsaving | currency }}</p>
         </div>
-
-            
-        </div>
-        
     </div>
 </div>

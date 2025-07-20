@@ -22,11 +22,6 @@ body {
     margin-bottom: 20px;
 }
 
-.input-form .form-group {
-    display: flex;
-    flex-direction: column;
-}
-
 .input-form .form-group label {
     font-weight: bold;
     margin-bottom: 5px;
@@ -86,27 +81,9 @@ body {
     background-color: #e2e6ea;
 }
 
-.total-expense {
+.total-todoTrans {
     background-color: #f2f9ff;
-    padding: 15px;
+    padding: 10px;
     margin-bottom: 20px;
     border-radius: 6px;
-}
-
-.disabled-dropdown {
-    color: #6c757d;
-    background-color: #e9ecef;
-    pointer-events: none;
-}
-
-.navbar {
-    background: linear-gradient(135deg, #008080, #80ced6);
-    padding: 5px 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    color: #ffffff;
-    width: 800px;
-    margin: 0 auto;
 }

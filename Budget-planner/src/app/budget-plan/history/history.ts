@@ -1,16 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
+import { SideNav } from '../side-nav/side-nav';
 
 @Component({
-  selector: 'app-expense',
-  imports: [CommonModule,ReactiveFormsModule],
-  templateUrl: './expense.html',
-  styleUrl: './expense.css'
+  selector: 'app-history',
+  standalone: true,
+  imports: [ReactiveFormsModule,CommonModule,MatIconModule,SideNav],
+  templateUrl: './history.html',
+  styleUrl: './history.css'
 })
-export class Expense {
-  expenseForm: any;
+export class History {
+  todoForm: any;
   selectedMonth: string;
   expenses: { month: string, expenseAmount: number }[] = [
     { month: 'January', expenseAmount: 1500 },
@@ -19,16 +22,16 @@ export class Expense {
   ];
   monthSelected: boolean = false;
   januaryExpense: any[] = [
-    { expenseType: 'Rent', expenseAmount: 1000 },
-    { expenseType: 'Groceries', expenseAmount: 500},
+    { expenseType: 'Recharge', expenseAmount: 1000 },
+    { expenseType: 'Light Bills', expenseAmount: 500 },
   ];
   februaryExpense: any[] = [
-    { expenseType: 'Utilities', expenseAmount: 200 },
-    { expenseType: 'Groceries', expenseAmount: 400 }
+    { expenseType: 'Essentials', expenseAmount: 200 },
+    { expenseType: 'Light Bills', expenseAmount: 400 }
   ];
   marchExpense: any[] = [
-    { expenseType: 'Rent', expenseAmount: 1100 },
-    { expenseType: 'Utilities', expenseAmount: 250 }
+    { expenseType: 'Recharge', expenseAmount: 1100 },
+    { expenseType: 'Essentials', expenseAmount: 250 }
   ];
 
   constructor(private fb: FormBuilder, private router: Router) {
@@ -36,7 +39,7 @@ export class Expense {
   }
 
   ngOnInit(): void {
-    this.expenseForm = this.fb.group({
+    this.todoForm = this.fb.group({
       month: ['', Validators.required],
       expenseType: ['', Validators.required],
       expenseAmount: ['', Validators.required]
@@ -44,10 +47,10 @@ export class Expense {
   }
 
   onSubmitExpense() {
-    if (this.expenseForm.valid) {
-      const newExpense = this.expenseForm.value;
+    if (this.todoForm.valid) {
+      const newExpense = this.todoForm.value;
       this.getFilteredExpenses().push(newExpense);
-      this.expenseForm.reset();
+      this.todoForm.reset();
     }
   }
 
@@ -75,8 +78,8 @@ export class Expense {
   }
 
   onSave() {
-    if (this.expenseForm.valid) {
-      this.expenseForm.reset({ month: this.selectedMonth });
+    if (this.todoForm.valid) {
+      this.todoForm.reset({ month: this.selectedMonth });
       this.getFilteredExpenses();
     }
   }
@@ -87,6 +90,5 @@ export class Expense {
 
   onBack() {
     this.router.navigate(['/budgetplanner/dashboard']);
-  } 
-
+  }
 }
